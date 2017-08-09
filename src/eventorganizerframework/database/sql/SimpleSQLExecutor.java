@@ -1,9 +1,17 @@
-package eventorganizerframework.database;
+package eventorganizerframework.database.sql;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class SimpleSQLExecutor extends SQLExecutor {
+	private Connection connection;
+
+	public void connectToDatabase() {
+
+		connection = dbConnectionFactory.createConnection();
+
+	}
 
 	@Override
 	public void update(String query) {
